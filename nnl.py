@@ -55,21 +55,21 @@ class nn:
     def forward(self, x):
             for i in range(len(self.layers)-1): # i : 0, 1, first layer then 2nd layer => output 2 then output 3
                 self.z[i+2] = x @ self.weights[i+1].T + self.biases[i+1]
+                print(self.z)
                 if len(self.layers)-2==i: # 1 = last i, propagation
                     self.output[i+2] = self.lastLayerActivFunction(self.z)
                 else:
                     self.output[i+2] = self.activFunction(self.z)
-                    x = self.output[i+2]
+                x = self.output[i+2]
 
     def backward(self, loss, learningRate):
             for i in range(len(self.layers)-1): #i: 0, 1
-                o = len(self.layers)-1 - i # o : 2, 1
-                #print(i, o)
+                o = len(self.layers) - i # o : 3, 2
                 #print(self.z)
                 if len(self.layers)==o: # 3 = first o, backpropagation 
-                    delta = loss * self.lastLayerActivFunction(self.z[o+1], deriv=True)
+                    delta = loss * self.lastLayerActivFunction(self.z[o], deriv=True)
                 else:
-                    delta = self.back * self.activFunction(self.z[o+1], deriv=True)
+                    delta = self.back * self.activFunction(self.z[o], deriv=True)
 
                 #print(delta.T, "\n\n", self.output[o]) #problem is actually detla = [0.]
 
@@ -77,9 +77,11 @@ class nn:
                 db = np.sum(delta, axis=0, keepdims=True)
                 #print(dw, db, delta, self.back, "o: ", o)
                 #print(self.z)
-
-                self.weights[o] -= learningRate * dw
-                self.biases[o] -= learningRate * db
+                #print(self.output)
+                #print(self.output[o], o)
+                #print(self.weights, "\n\n", dw)
+                self.weights[o-1] -= learningRate * dw
+                self.biases[o-1] -= learningRate * db
 
                 self.back = delta
 
