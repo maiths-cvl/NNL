@@ -74,22 +74,14 @@ class NeuralNetwork:
 
             self.back = delta @ self.weights[o-1]
         
-    def learnAlgo(self, x, learningrate, error):
+    def learnAlgo(self, x, learningrate, y):
         self.forward(x)
+        error = 2 * (self.output[len(self.layers)]-y)
         self.backward(error, learningrate)
 
-    def learn(self, x, learningrate, error, precision, repeat, errorNd):
-        if precision=="none" and repeat==0:
-            print("Please enter a precision to reach of amount of times to repeat")
-            sys.exit()
-
-        elif precision=="none":
-            for i in range(repeat):
-                self.learnAlgo(x, learningrate, error)
-
-        else:
-            while errorNd > (1-precision/100)**2:
-                self.learnAlgo()
+    def learn(self, x, y, learningrate, repeat):
+        for i in range(repeat):
+            self.learnAlgo(x, learningrate, y)
 
         
 
