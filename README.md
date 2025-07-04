@@ -15,3 +15,8 @@ So coding my own neural network library like pytorch is so cool and instructive
 I plan on upgrading and optimizing it.
 Maybe next I'll implement CUDA for faster learning times, and I'll be able to use it for Image Recognition ??
 Anyways, it is a very cool project that took me around 3 hours. 
+
+**Upgrades :**<br>
+ - Test recursive back propagation function
+ - Reverse for in back propagation (instead of i and o variables)
+ - Adding folder/file editor to save the weights and biases in external files when training
