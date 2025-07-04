@@ -15,7 +15,7 @@ def ReLU(x, deriv=False):
 class NeuralNetwork:
 
     def __init__(self, layers, activation="sigmoid", last_layer_activation="sigmoid", npRandomSeed=0): #layers : [input, hidden, ..., hidden, output]
-        np.random.seed(0)
+        np.random.seed(npRandomSeed)
         self.weights = {}
         self.biases = {}
         self.layers = layers
@@ -61,8 +61,7 @@ class NeuralNetwork:
                 x = self.output[i+2]
 
     def backward(self, loss, learningRate):
-            for i in range(len(self.layers)-1): #i: 0, 1
-                o = len(self.layers) - i # o : 3, 2
+            for o in reversed(range(2, len(self.layers)+1)): #i: 0, 1
                 if len(self.layers)==o: # 3 = first o, backpropagation 
                     delta = loss * self.lastLayerActivFunction(self.z[o], deriv=True)
                 else:
