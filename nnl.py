@@ -74,14 +74,14 @@ class NeuralNetwork:
 
             self.back = delta @ self.weights[o-1]
         
-    def learnAlgo(self, x, learningrate, y):
+    def __learnAlgo__(self, x, learningrate, y):
         self.forward(x)
         error = 2 * (self.output[len(self.layers)]-y)
         self.backward(error, learningrate)
 
     def learn(self, x, y, learningrate, repeat):
         for i in range(repeat):
-            self.learnAlgo(x, learningrate, y)
+            self.__learnAlgo__(x, learningrate, y)
 
         
 
