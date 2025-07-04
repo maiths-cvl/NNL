@@ -1,4 +1,4 @@
-**Welcome to my built from scratch Neural Network Library.**
+**Welcome to my Neural Network Library built from scratch.**
 I really love to deeply understand how things works and I recently decided to get into Machine Learning and more precisely Deep Learning.
 
 **What i brought me**
