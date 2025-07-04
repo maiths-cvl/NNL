@@ -105,7 +105,7 @@ Y = [0, 1, 1, 0]
 Y = np.array(Y)
 Y = Y.reshape(-1, 1) # usefull to make this vector a column matrice
 
-n = nn([2, 2, 1])
+n = nn([2, 2, 1], activation="relu")
 
 n.forward(X)
 
