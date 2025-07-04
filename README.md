@@ -17,7 +17,10 @@ Maybe next I'll implement CUDA for faster learning times, and I'll be able to us
 Anyways, it is a very cool project that took me around 3 hours. 
 
 **Upgrades :**<br>
+ - Adding folder/file editor to save the weights and biases in external files when training
+ - Improve the learn function (not necessary to use), make it compatible with all error functions or at least the usual
+
+**Upgrades done:**<br>
  - ~~Test recursive back propagation function~~ (too heavy compared to for loop)
  - Reverse for in back propagation (instead of i and o variables)
- - Adding folder/file editor to save the weights and biases in external files when training
- - Clean up the nnl.py file because it's in test state right now, need to make it usable
+  - Clean up the nnl.py file because it's in test state right now, need to make it usable
