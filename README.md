@@ -9,7 +9,7 @@ So coding my own neural network library like pytorch is so cool and instructive
  - My weights/biases/ouput matrices are dictionnary so i can store them for each layer
  - Made a backpropagation algorithm in one function (pretty happy about this one)
  - I learned to use git and github on different computers (pulling, branches, remote, all thoses basics things)
-* - I'm now tired because its 2am*
+ - *I'm now tired because its 2am*
 
 **Next ?**
 I plan on upgrading and optimizing it.
