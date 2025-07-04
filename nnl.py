@@ -74,39 +74,3 @@ class NeuralNetwork:
                 self.biases[o-1] -= learningRate * db
 
                 self.back = delta @ self.weights[o-1]
-
-
-
-µ = 0.1 #learning rate
-
-X = [[0, 0],
-     [0, 1],
-     [1, 0],
-     [1, 1]]
-
-Y = [0, 1, 1, 0]
-Y = np.array(Y)
-Y = Y.reshape(-1, 1) # usefull to make this vector a column matrice
-
-n = NeuralNetwork([2, 2, 1], activation="relu")
-
-n.forward(X)
-
-Error = 2 * (n.output[3]-Y)
-
-n.backward(Error, µ)
-
-n.forward(X)
-
-
-
-
-for i in range(100000):
-      n.forward(X)
-      Error = 2 * (n.output[3]-Y)
-      n.backward(Error, µ)
-      if i%5000==0:
-            print(np.mean((n.output[3]-Y)**2))
-
-n.forward(X)
-print(n.output[3], ": final")
